@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://negyzet-lap-16.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Ammo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://knife.png" type="Texture" id=14]
 [ext_resource path="res://black.png" type="Texture" id=15]
+[ext_resource path="res://Texture_Dungeon/mainlevbuild.png" type="Texture" id=16]
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 1, 1, 1 )
@@ -33,6 +34,9 @@ font_data = ExtResource( 9 )
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 30, 0, 30, 30, 0, 30 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 0, 0, 31, 0, 31, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "negyzet-lap-16.png 0"
@@ -56,6 +60,27 @@ points = PoolVector2Array( 0, 0, 30, 0, 30, 30, 0, 30 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+1/name = "mainlevbuild.png 1"
+1/texture = ExtResource( 16 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 736, 271, 31, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 6 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -187,8 +212,7 @@ margin_right = 996.0
 margin_bottom = 32.0
 
 [node name="TileMap" type="TileMap" parent="."]
-modulate = Color( 1, 0, 0, 1 )
 tile_set = SubResource( 2 )
 cell_size = Vector2( 30, 30 )
 format = 1
-tile_data = PoolIntArray( 327680, 0, 0, 327705, 0, 0, 393216, 0, 0, 393241, 0, 0, 458752, 0, 0, 458777, 0, 0, 524288, 0, 0, 524313, 0, 0, 589824, 0, 0, 589849, 0, 0, 655360, 0, 0, 655385, 0, 0, 720896, 0, 0, 720921, 0, 0, 786432, 0, 0, 786457, 0, 0, 851968, 0, 0, 851993, 0, 0, 917504, 0, 0, 917529, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0 )
+tile_data = PoolIntArray( 327680, 1, 0, 327705, 1, 0, 393216, 1, 0, 393241, 1, 0, 458752, 1, 0, 458777, 1, 0, 524288, 1, 0, 524313, 1, 0, 589824, 1, 0, 589849, 1, 0, 655360, 1, 0, 655385, 1, 0, 720896, 1, 0, 720921, 1, 0, 786432, 1, 0, 786457, 1, 0, 851968, 1, 0, 851993, 1, 0, 917504, 1, 0, 917529, 1, 0, 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 1, 0 )
