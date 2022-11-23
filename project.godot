@@ -14,10 +14,6 @@ config/name="Projekt2"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
-[display]
-
-mouse_cursor/custom_image="res://crosshair.png"
-
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
