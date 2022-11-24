@@ -117,12 +117,12 @@ position = Vector2( -1, -1 )
 script = ExtResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+scale = Vector2( 0.2, 0.2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 19
 speed_scale = 3.0
 playing = true
 
@@ -132,7 +132,7 @@ polygon = PoolVector2Array( -15, 15, 14, 15, 15, -16, -15, -15 )
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 position = Vector2( -45, 0 )
 current = true
-zoom = Vector2( 1.5, 1.5 )
+zoom = Vector2( 0.4, 0.4 )
 
 [node name="KnifeArea" type="Area2D" parent="KinematicBody2D"]
 

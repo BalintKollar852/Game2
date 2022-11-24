@@ -4,6 +4,7 @@ using System;
 public class Enemy : Node2D
 {
     // Majd a tilemapen csak megadott helyen spawnoljanak
+    // Csak akkor lehessen őket keselni ha a bal klikket lenyomod 1x nem spamelve
     [Export] public PackedScene psGold;
     [Signal] delegate void EnemyAttack();
     public float speed;
@@ -23,7 +24,7 @@ public class Enemy : Node2D
     public bool weapon;
     public override void _Ready()
     {
-        speed = 80f;
+        speed = 25;
 
     }
         public override void _Input(InputEvent esemeny)

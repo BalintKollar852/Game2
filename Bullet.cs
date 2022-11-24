@@ -10,7 +10,7 @@ public class Bullet : Node2D
     {
         var target = Vector2.Zero;
         var bullet = GetNode("Area2D") as Area2D;
-        speed = 10;
+        speed = 5;
         target = GetGlobalMousePosition();
         bullet.Rotation = GetAngleTo(target);
         irany = GlobalPosition.DirectionTo(target) * speed;

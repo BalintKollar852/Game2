@@ -26,6 +26,9 @@ public class Game : Node2D
         // A canvaslayer elemei meg minden is faszán viszonyuljon hozzá
 
         //Animációk beállítása
+
+        // Tilemapen bizonyos objectre rátenni egy scriptet pl hogy ha nincs rajta heal akkor spawnoljon pár másodperc múlva rá (vagy area2d -ket rakni adott helyre)
+
         Random random = new Random();
         Node2D heal = (Node2D)psHeal.Instance();
         heal.Position = new Vector2(random.Next(200, 400), random.Next(0, 200));

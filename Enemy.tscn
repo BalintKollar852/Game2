@@ -88,6 +88,7 @@ script = ExtResource( 2 )
 psGold = ExtResource( 3 )
 
 [node name="EnemyBody" type="KinematicBody2D" parent="."]
+scale = Vector2( 0.2, 0.2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyBody"]
 polygon = PoolVector2Array( 28, -30, 28, 29, -29, 30, -29, -29 )
