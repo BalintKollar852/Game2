@@ -38,7 +38,7 @@ public class Ammo_Block : Node2D
     }
     public void _on_Area2D_area_exited(Area2D ammoarea){
         if(ammoarea.IsInGroup("ammo")){
-            ammoishereorno = true;
+            ammoishereorno = false;
         }
     }
 }

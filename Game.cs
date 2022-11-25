@@ -20,7 +20,7 @@ public class Game : Node2D
     public bool weaponuse = true;
     public override void _Ready()
     {
-        //OS.WindowFullscreen = true;
+        OS.WindowFullscreen = true;
         // A canvaslayer elemei meg minden is faszán viszonyuljon hozzá
 
         //Animációk beállítása
