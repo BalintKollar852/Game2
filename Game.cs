@@ -3,27 +3,31 @@ using System;
 public class Game : Node2D
 {
     // Amerre néz a karakter egy kis flasflight (picit sötét lenne a map)
-    [Export]
-	public PackedScene psBullet;
-    [Export]
-	public PackedScene psEnemy;
-    [Export]
-	public PackedScene psAmmo;
+    [Export] public PackedScene psBullet;
+    [Export] public PackedScene psEnemy;
+    [Export] public PackedScene psAmmo;
+    [Export] public PackedScene psGrenade;
     private bool mousedown;
     private float elapsedtime;
     private float reloadtime;
     private float enemyspawntime;
     private int bulletnumber = 30;
-    private int hp = 100;
-    private int gold;
-    private int maxammo = 90;
+    public int hp = 100;
+    public int gold;
+    public int maxammo = 90;
+    public int grenadeammo = 1;
     public bool weaponuse = true;
+    private Node2D karakter;
+    private KinematicBody2D karakterbody;
+    Random random = new Random();
     public override void _Ready()
     {
-        OS.WindowFullscreen = true;
+        //OS.WindowFullscreen = true;
         // A canvaslayer elemei meg minden is faszán viszonyuljon hozzá
-
         //Animációk beállítása
+        // Ne tudj lőni reload közben
+        // Az enemy hud ne buggoljon 
+        // Gránát sebezze a karaktert és az enemit is
     }
     public void on_enemyattack(){
         hp -= 5;
@@ -46,6 +50,7 @@ public class Game : Node2D
         else{
             maxammo = 150;
         }
+        grenadeammo = 3;
     }
     public override void _Input(InputEvent esemeny)
 	{
@@ -65,27 +70,38 @@ public class Game : Node2D
         {
             weaponuse = false;
         }
+        if (Input.IsActionJustPressed("g"))
+        {
+           if(grenadeammo > 0){
+                grenadeammo--;
+                Node2D grenade = (Node2D)psGrenade.Instance();
+                grenade.Position = karakter.Position + karakterbody.Position;
+                AddChild(grenade);
+           }
+        }
     }
     public override void _Process(float delta)
     {
+        karakter = GetNode("Character") as Node2D;
+        karakterbody = GetNode("Character/KinematicBody2D") as KinematicBody2D;
         var knife = GetNode("Character/HUD/Knife/Sprite") as Sprite;
         var rifle = GetNode("Character/HUD/Rifle/Sprite") as Sprite;
         var weapon_background = GetNode("Character/HUD/Weapon_BackGround") as Sprite;
         var hpnumber = GetNode("Character/HUD/HPBar/Count/Background/Number") as Label;
         var hptexture = GetNode("Character/HUD/HPBar/TextureProgress") as TextureProgress;
         var goldtexture = GetNode("Character/HUD/Gold") as Label;
-        var karakter = GetNode("Character") as Node2D;
-        var karakterbody = GetNode("Character/KinematicBody2D") as KinematicBody2D;
         var rifle_bulletnumber = GetNode("Character/HUD/Rifle/BulletNumber") as Label;
         var reload_texure = GetNode("Character/HUD/Rifle/Reload_ProgressBar") as ProgressBar;
+        var grenade_number = GetNode("Character/HUD/Grenade/Number") as Label;
+        grenade_number.Text = Convert.ToString(grenadeammo);
         if(weaponuse){
             knife.Modulate = Color.Color8((byte) 128, (byte)127, (byte)108);
-            weapon_background.Position = new Vector2(960, 475);
+            weapon_background.Position = new Vector2(960, 420);
             rifle.Modulate = Color.Color8((byte) 255, (byte)255, (byte)255);
         }
         else{
             rifle.Modulate = Color.Color8((byte) 128, (byte)127, (byte)108);
-            weapon_background.Position = new Vector2(960, 542);
+            weapon_background.Position = new Vector2(960, 475);
             knife.Modulate = Color.Color8((byte) 255, (byte)255, (byte)255);
         }
         hpnumber.Text = Convert.ToString(hp);
@@ -93,7 +109,6 @@ public class Game : Node2D
         goldtexture.Text = Convert.ToString(gold);
         enemyspawntime += delta;
         if(enemyspawntime >= 3){
-            Random random = new Random();
             Node2D enemy = (Node2D)psEnemy.Instance();
             enemy.Position = new Vector2(random.Next(0, 200), random.Next(0, 200));
             enemy.Connect("EnemyAttack",this,"on_enemyattack");

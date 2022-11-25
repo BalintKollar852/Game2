@@ -20,7 +20,7 @@ public class Ammo_Block : Node2D
     }
     public override void _Process(float delta)
     {
-        if(!ammoishereorno && ammospawntime >= 5){
+        if(!ammoishereorno && ammospawntime >= 30){
             ammospawntime = 0;
             Node2D ammo = (Node2D)psAmmo.Instance();
             ammo.Position = areacollison.Position;

@@ -22,6 +22,7 @@ public class Enemy : Node2D
     private float knifeattacktime; 
     private bool mousedown;
     public bool weapon;
+    private bool grenadeattack;
     public override void _Ready()
     {
         speed = 25;
@@ -48,6 +49,9 @@ public class Enemy : Node2D
                 hp -= 20;
                 knifeattacktime = 0;
             }
+        }
+        if(grenadeattack){
+            hp -= 50;
         }
         var hpbar = GetNode("EnemyBody/ProgressBar") as ProgressBar;
         hpbar.Value = hp;
@@ -95,6 +99,7 @@ public class Enemy : Node2D
         Random random = new Random();
         droporno = random.Next(0, 2);
         if(droporno == 1){
+            //Valmi baj van itt
             var gamenode = GetTree().Root.GetNode("Game") as Node2D;
             var enemy = GetNode("EnemyBody") as KinematicBody2D;
             var enemynode = enemy.Owner as Node2D;
@@ -146,11 +151,17 @@ public class Enemy : Node2D
         if(areashape.Name == "KnifeArea"){
             knifeattackarea = true;
         }
+        /*if(areashape.IsInGroup("explosion")){
+            grenadeattack = true;
+        }*/
     }
-        public void _on_AreaShape_area_exited(Area2D areashape){
+    public void _on_AreaShape_area_exited(Area2D areashape){
         if(areashape.Name == "KnifeArea"){
             knifeattackarea = false;
         }
+        /*if(areashape.IsInGroup("explosion")){
+            grenadeattack = false;
+        }*/
     }
     
 }

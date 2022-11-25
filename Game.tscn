@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Texture/frames/floor_1.png" type="Texture" id=2]
@@ -43,6 +43,8 @@
 [ext_resource path="res://Texture/frames/wall_top_left.png" type="Texture" id=41]
 [ext_resource path="res://Texture/frames/wall_top_mid.png" type="Texture" id=42]
 [ext_resource path="res://Texture/frames/wall_top_right.png" type="Texture" id=43]
+[ext_resource path="res://grenade_icon.png" type="Texture" id=44]
+[ext_resource path="res://Grenade.tscn" type="PackedScene" id=45]
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -672,6 +674,7 @@ script = ExtResource( 4 )
 psBullet = ExtResource( 3 )
 psEnemy = ExtResource( 6 )
 psAmmo = ExtResource( 13 )
+psGrenade = ExtResource( 45 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 7 )
@@ -685,14 +688,14 @@ tile_data = PoolIntArray( -262150, 24, 0, -262149, 26, 0, -262148, 27, 0, -26214
 
 [node name="Weapon_BackGround" type="Sprite" parent="Character/HUD"]
 self_modulate = Color( 1, 1, 1, 0.301961 )
-position = Vector2( 959, 474 )
+position = Vector2( 959, 420 )
 scale = Vector2( 0.833333, 0.26625 )
 texture = ExtResource( 15 )
 
 [node name="Rifle" type="CanvasLayer" parent="Character/HUD"]
 
 [node name="Sprite" type="Sprite" parent="Character/HUD/Rifle"]
-position = Vector2( 955, 470 )
+position = Vector2( 955, 420 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 5 )
 
@@ -704,9 +707,9 @@ margin_bottom = 598.0
 
 [node name="Key" type="Label" parent="Character/HUD/Rifle"]
 margin_left = 1010.0
-margin_top = 450.0
+margin_top = 400.0
 margin_right = 1018.0
-margin_bottom = 464.0
+margin_bottom = 414.0
 text = "1"
 
 [node name="Reload_ProgressBar" type="ProgressBar" parent="Character/HUD/Rifle"]
@@ -737,17 +740,37 @@ __meta__ = {
 [node name="Knife" type="CanvasLayer" parent="Character/HUD"]
 
 [node name="Sprite" type="Sprite" parent="Character/HUD/Knife"]
-position = Vector2( 960, 537 )
+position = Vector2( 960, 475 )
 rotation = -0.349065
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 14 )
 
 [node name="Key" type="Label" parent="Character/HUD/Knife"]
 margin_left = 1010.0
-margin_top = 520.0
+margin_top = 460.0
 margin_right = 1050.0
-margin_bottom = 534.0
+margin_bottom = 474.0
 text = "2"
+
+[node name="Grenade" type="CanvasLayer" parent="Character/HUD"]
+
+[node name="GrenadeIcon" type="Sprite" parent="Character/HUD/Grenade"]
+position = Vector2( 990, 535 )
+scale = Vector2( 0.03, 0.03 )
+texture = ExtResource( 44 )
+
+[node name="Key" type="Label" parent="Character/HUD/Grenade"]
+margin_left = 1010.0
+margin_top = 512.0
+margin_right = 1050.0
+margin_bottom = 526.0
+text = "G"
+
+[node name="Number" type="Label" parent="Character/HUD/Grenade"]
+margin_left = 952.0
+margin_top = 528.0
+margin_right = 992.0
+margin_bottom = 542.0
 
 [node name="HPBar" type="HBoxContainer" parent="Character/HUD"]
 margin_left = 20.0
@@ -802,13 +825,19 @@ margin_right = 996.0
 margin_bottom = 32.0
 
 [node name="Heal_Block" parent="." instance=ExtResource( 23 )]
-position = Vector2( 72, 8 )
-
-[node name="Ammo_Block" parent="." instance=ExtResource( 12 )]
-position = Vector2( 72, -40 )
-
-[node name="Ammo_Block2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 120, 8 )
+position = Vector2( 8, 152 )
 
 [node name="Heal_Block2" parent="." instance=ExtResource( 23 )]
 position = Vector2( 120, -40 )
+
+[node name="Heal_Block3" parent="." instance=ExtResource( 23 )]
+position = Vector2( 312, 136 )
+
+[node name="Ammo_Block" parent="." instance=ExtResource( 12 )]
+position = Vector2( 128, 112 )
+
+[node name="Ammo_Block2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 296, 40 )
+
+[node name="Ammo_Block3" parent="." instance=ExtResource( 12 )]
+position = Vector2( -55, -25 )

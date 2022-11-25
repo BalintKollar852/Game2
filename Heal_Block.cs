@@ -20,7 +20,7 @@ public class Heal_Block : Node2D
     }
     public override void _Process(float delta)
     {
-        if(!healishereorno && healspawntime >= 5){
+        if(!healishereorno && healspawntime >= 30){
             healspawntime = 0;
             Node2D heal = (Node2D)psHeal.Instance();
             heal.Position = areacollison.Position;
