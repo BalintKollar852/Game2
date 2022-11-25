@@ -19,19 +19,20 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 61.0082
+radius = 44.0114
 
-[node name="Explosion" type="Node2D"]
+[node name="Explosion" type="Node2D" groups=["explosion"]]
 script = ExtResource( 9 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["explosion"]]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
-scale = Vector2( 0.8, 0.8 )
+scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 1 )
 speed_scale = 2.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="Area2D/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

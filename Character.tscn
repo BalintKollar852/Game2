@@ -112,11 +112,11 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 71, 34 )
 
-[node name="Character" type="Node2D"]
+[node name="Character" type="Node2D" groups=["character"]]
 position = Vector2( -1, -1 )
 script = ExtResource( 2 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["character"]]
 scale = Vector2( 0.2, 0.2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]

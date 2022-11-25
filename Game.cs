@@ -15,7 +15,7 @@ public class Game : Node2D
     public int hp = 100;
     public int gold;
     public int maxammo = 90;
-    public int grenadeammo = 1;
+    public int grenadeammo = 2;
     public bool weaponuse = true;
     private Node2D karakter;
     private KinematicBody2D karakterbody;
@@ -28,6 +28,9 @@ public class Game : Node2D
         // Ne tudj lőni reload közben
         // Az enemy hud ne buggoljon 
         // Gránát sebezze a karaktert és az enemit is
+    }
+    public void on_grenadedamage(){
+        hp -= 35;
     }
     public void on_enemyattack(){
         hp -= 5;
