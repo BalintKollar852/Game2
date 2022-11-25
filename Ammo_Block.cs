@@ -15,7 +15,7 @@ public class Ammo_Block : Node2D
 
         Node2D ammo = (Node2D)psAmmo.Instance();
         ammo.Position = areacollison.Position;
-        ammo.Connect("CharacterHeal",gameclass,"on_characterheal");
+        ammo.Connect("AmmoBoxPickUp",gameclass,"on_ammoboxpickup");
         AddChild(ammo);
     }
     public override void _Process(float delta)
