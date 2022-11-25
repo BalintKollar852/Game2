@@ -13,5 +13,6 @@ public class Heal : Node2D
             EmitSignal("CharacterHeal");
             QueueFree();
         }
+        else{GD.Print("asd");}
     }
 }

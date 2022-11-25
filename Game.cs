@@ -22,7 +22,9 @@ public class Game : Node2D
     public bool weaponuse = true;
     public override void _Ready()
     {
-        //OS.WindowFullscreen = true;
+        OS.WindowFullscreen = true;
+
+        var tilemap = GetNode("TileMap") as TileMap;
         // A canvaslayer elemei meg minden is faszán viszonyuljon hozzá
 
         //Animációk beállítása
