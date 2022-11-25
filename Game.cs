@@ -23,11 +23,11 @@ public class Game : Node2D
     public override void _Ready()
     {
         //OS.WindowFullscreen = true;
-        // A canvaslayer elemei meg minden is faszán viszonyuljon hozzá
         //Animációk beállítása
         // Ne tudj lőni reload közben
         // Az enemy hud ne buggoljon 
-        // Gránát sebezze a karaktert és az enemit is
+        // Gránát mozgása buggos
+        //Beállításokba fullscreen stb..
     }
     public void on_grenadedamage(){
         hp -= 35;
