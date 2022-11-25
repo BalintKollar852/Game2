@@ -13,7 +13,8 @@ public class Grenade : Node2D
         grenadebody = GetNode("RigidBody2D") as RigidBody2D;
         target = GetGlobalMousePosition();
         irany = GlobalPosition.DirectionTo(target);
-        grenadebody.ApplyCentralImpulse(irany);
+        // Buggos a dobás
+        grenadebody.ApplyImpulse(Vector2.Zero ,irany);
     }
     public override void _Process(float delta)
     {
