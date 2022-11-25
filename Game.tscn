@@ -11,7 +11,7 @@
 [ext_resource path="res://Comfortaa-Bold.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://lifebar_bg.png" type="Texture" id=10]
 [ext_resource path="res://lifebar_fill.png" type="Texture" id=11]
-[ext_resource path="res://Heal.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Ammo_Block.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Ammo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://knife.png" type="Texture" id=14]
 [ext_resource path="res://black.png" type="Texture" id=15]
@@ -671,7 +671,6 @@ font_data = ExtResource( 9 )
 script = ExtResource( 4 )
 psBullet = ExtResource( 3 )
 psEnemy = ExtResource( 6 )
-psHeal = ExtResource( 12 )
 psAmmo = ExtResource( 13 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -803,4 +802,13 @@ margin_right = 996.0
 margin_bottom = 32.0
 
 [node name="Heal_Block" parent="." instance=ExtResource( 23 )]
-position = Vector2( 88, 24 )
+position = Vector2( 72, 8 )
+
+[node name="Ammo_Block" parent="." instance=ExtResource( 12 )]
+position = Vector2( 72, -40 )
+
+[node name="Ammo_Block2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 120, 8 )
+
+[node name="Heal_Block2" parent="." instance=ExtResource( 23 )]
+position = Vector2( 120, -40 )

@@ -8,8 +8,6 @@ public class Game : Node2D
     [Export]
 	public PackedScene psEnemy;
     [Export]
-	public PackedScene psHeal;
-    [Export]
 	public PackedScene psAmmo;
     private bool mousedown;
     private float elapsedtime;
@@ -22,25 +20,10 @@ public class Game : Node2D
     public bool weaponuse = true;
     public override void _Ready()
     {
-        OS.WindowFullscreen = true;
-
-        var tilemap = GetNode("TileMap") as TileMap;
+        //OS.WindowFullscreen = true;
         // A canvaslayer elemei meg minden is faszán viszonyuljon hozzá
 
         //Animációk beállítása
-
-        // Tilemapen bizonyos objectre rátenni egy scriptet pl hogy ha nincs rajta heal akkor spawnoljon pár másodperc múlva rá (vagy area2d -ket rakni adott helyre)
-
-        Random random = new Random();
-        Node2D heal = (Node2D)psHeal.Instance();
-        heal.Position = new Vector2(random.Next(200, 400), random.Next(0, 200));
-        heal.Connect("CharacterHeal",this,"on_characterheal");
-        AddChild(heal);
-
-        Node2D ammo = (Node2D)psAmmo.Instance();
-        ammo.Position = new Vector2(random.Next(400, 600), random.Next(0, 200));
-        ammo.Connect("AmmoBoxPickUp",this,"on_ammoboxpickup");
-        AddChild(ammo);
     }
     public void on_enemyattack(){
         hp -= 5;

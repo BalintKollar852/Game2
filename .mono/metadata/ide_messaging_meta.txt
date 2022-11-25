@@ -1,2 +1,2 @@
-﻿50710
-D:/Saját meghajtó/Programozás/GODOT/Godot_v3.5.1-stable_mono_win64/Godot_v3.5.1-stable_mono_win64.exe
+﻿50720
+G:/Saját meghajtó/Programozás/GODOT/Godot_v3.5.1-stable_mono_win64/Godot_v3.5.1-stable_mono_win64.exe
