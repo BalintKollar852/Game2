@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Menu.cs" type="Script" id=1]
+[ext_resource path="res://menubackground.jpg" type="Texture" id=2]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="Menubackground" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 0.533333, 0.555556 )
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Menubackground"]
+current = true
+
+[node name="Options" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 128.0
+margin_right = 128.0
+margin_bottom = 168.0
+text = "Options"
+
+[node name="BackToMenu" type="Button" parent="."]
+margin_left = 32.0
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 48.0
+text = "Vissza"
+
+[connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]

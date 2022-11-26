@@ -14,7 +14,7 @@ public class Grenade : Node2D
         target = GetGlobalMousePosition();
         irany = GlobalPosition.DirectionTo(target);
         // Buggos a dobás
-        grenadebody.ApplyImpulse(Vector2.Zero ,irany);
+        //grenadebody.ApplyImpulse(Vector2.Zero ,irany);
     }
     public override void _Process(float delta)
     {
