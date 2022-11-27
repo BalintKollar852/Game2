@@ -2,7 +2,6 @@ using Godot;
 using System;
 public class Game : Node2D
 {
-    // Amerre néz a karakter egy kis flasflight (picit sötét lenne a map)
     [Export] public PackedScene psBullet;
     [Export] public PackedScene psEnemy;
     [Export] public PackedScene psAmmo;
@@ -22,12 +21,12 @@ public class Game : Node2D
     Random random = new Random();
     public override void _Ready()
     {
-        //OS.WindowFullscreen = true;
+        
+        // Amerre néz a karakter egy kis flasflight (picit sötét lenne a map)
         //Animációk beállítása
         // Ne tudj lőni reload közben
         // Az enemy hud ne buggoljon 
         // Gránát mozgása buggos
-        //Beállításokba fullscreen stb..
     }
     public void on_grenadedamage(){
         hp -= 35;

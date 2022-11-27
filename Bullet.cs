@@ -3,7 +3,7 @@ using System;
 
 public class Bullet : Node2D
 {
-    public int speed;
+    public float speed;
     public Vector2 irany;
     private float livetime;
     public override void _Ready()

@@ -34,3 +34,5 @@ C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\.mono\temp\obj\Debug\Projek
 C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\.mono\temp\obj\Debug\Projekt2.csproj.CoreCompileInputs.cache
 C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\.mono\temp\obj\Debug\Projekt2.dll
 C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\.mono\temp\obj\Debug\Projekt2.pdb
+E:\Saját meghajtó\Programozás\GODOT\Game2\.mono\temp\bin\Debug\Newtonsoft.Json.dll
+E:\Saját meghajtó\Programozás\GODOT\Game2\.mono\temp\obj\Debug\Projekt2.csproj.CopyComplete

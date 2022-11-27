@@ -677,6 +677,7 @@ psAmmo = ExtResource( 13 )
 psGrenade = ExtResource( 45 )
 
 [node name="TileMap" type="TileMap" parent="."]
+light_mask = 3
 tile_set = SubResource( 7 )
 cell_size = Vector2( 16, 16 )
 format = 1

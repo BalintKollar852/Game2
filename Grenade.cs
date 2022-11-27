@@ -12,12 +12,13 @@ public class Grenade : Node2D
     {
         grenadebody = GetNode("RigidBody2D") as RigidBody2D;
         target = GetGlobalMousePosition();
-        irany = GlobalPosition.DirectionTo(target);
-        // Buggos a dobás
-        //grenadebody.ApplyImpulse(Vector2.Zero ,irany);
+        irany = Position.DirectionTo(target); 
+
+        // csak a falról, stb... pattanjon vissza az enemyn és a karakteren menjen át (layer,mask állítás)
     }
     public override void _Process(float delta)
     {
+        grenadebody.ApplyCentralImpulse(irany);
         explosiontime += delta;
         if(explosiontime >= 3){
             QueueFree();

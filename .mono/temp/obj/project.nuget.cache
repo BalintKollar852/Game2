@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jxuO4ZW8A2bB+P5XACJbKmdL3yMiZUODEOHM0+X7dzFW5BoyJInxg3M7byR5p3P122yIudGK4tq2mIZsrZDYYw==",
+  "dgSpecHash": "NVx8synPYvZ2AtI44vhgKRdZxPpk+t7gbJXHJoWqXef1oK2YiQ84EQfvKB16Vi3O7P9CNk0i/QHNbP2DoqkR1Q==",
   "success": true,
   "projectFilePath": "E:\\Saját meghajtó\\Programozás\\GODOT\\Game2\\Projekt2.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\balin\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
