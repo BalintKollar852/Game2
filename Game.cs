@@ -26,7 +26,9 @@ public class Game : Node2D
         //Animációk beállítása
         // Ne tudj lőni reload közben
         // Az enemy hud ne buggoljon 
-        // Gránát mozgása buggos
+        // Gránát mozgása buggos (a tilemapre müködjön a collisonje a többire ne (layer/mask) )
+        // Loading screen (menűből a gameba) (zombiebackground képpel és azon egy progresbarral)
+        // Beállításokba célkereszt lehessen választani (kurzort)
     }
     public void on_grenadedamage(){
         hp -= 35;
