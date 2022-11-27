@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menu.cs" type="Script" id=1]
 [ext_resource path="res://menubackground.jpg" type="Texture" id=2]
+[ext_resource path="res://Adventuro.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -21,11 +28,60 @@ margin_right = 128.0
 margin_bottom = 168.0
 text = "Options"
 
-[node name="BackToMenu" type="Button" parent="."]
-margin_left = 32.0
-margin_top = 8.0
-margin_right = 120.0
-margin_bottom = 48.0
-text = "Vissza"
+[node name="OptionsPanel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 360.0
+margin_top = 72.0
+margin_right = 672.0
+margin_bottom = 232.0
+
+[node name="BackToMenu" type="Button" parent="OptionsPanel"]
+margin_left = 248.0
+margin_top = 16.0
+margin_right = 336.0
+margin_bottom = 56.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Back"
+
+[node name="FpsCounter" type="CheckButton" parent="OptionsPanel"]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 172.0
+margin_bottom = 56.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+pressed = true
+text = "Dispaly   FPS"
+
+[node name="Fullscreen" type="CheckButton" parent="OptionsPanel"]
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 170.0
+margin_bottom = 72.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+pressed = true
+text = "Fullscreen"
+
+[node name="HSlider" type="HSlider" parent="OptionsPanel"]
+margin_left = 24.0
+margin_top = 80.0
+margin_right = 88.0
+margin_bottom = 96.0
 
 [connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="OptionsPanel/BackToMenu" to="." method="_on_BackToMenu_pressed"]
+[connection signal="toggled" from="OptionsPanel/FpsCounter" to="." method="_on_CheckButton_toggled"]
+[connection signal="toggled" from="OptionsPanel/Fullscreen" to="." method="_on_Fullscreen_toggled"]
