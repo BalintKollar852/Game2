@@ -28,5 +28,8 @@ public class Bullet : Node2D
         if(enemy.Owner.Name != "Character" && enemy.Name != "EnemyBody"){
             QueueFree();
         }
+        if(enemy.IsInGroup("grenade")){
+            enemy.QueueFree();
+        }
     }
 }

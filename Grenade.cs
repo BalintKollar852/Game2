@@ -13,8 +13,6 @@ public class Grenade : Node2D
         grenadebody = GetNode("RigidBody2D") as RigidBody2D;
         target = GetGlobalMousePosition();
         irany = Position.DirectionTo(target); 
-
-        // csak a falról, stb... pattanjon vissza az enemyn és a karakteren menjen át (layer,mask állítás)
     }
     public override void _Process(float delta)
     {

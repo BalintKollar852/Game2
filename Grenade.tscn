@@ -5,7 +5,7 @@
 [ext_resource path="res://Explosion.tscn" type="PackedScene" id=3]
 
 [sub_resource type="PhysicsMaterial" id=3]
-bounce = 0.5
+bounce = 0.75
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 3.0
@@ -16,7 +16,9 @@ script = ExtResource( 2 )
 psExplosion = ExtResource( 3 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["grenade"]]
-mass = 2.55102
+collision_layer = 2
+collision_mask = 2
+mass = 1.02041
 physics_material_override = SubResource( 3 )
 gravity_scale = 0.0
 

@@ -19,11 +19,12 @@ public class Enemy : Node2D
     private bool knifeattackarea; 
     private float knifeattacktime; 
     private bool mousedown;
+    private ProgressBar hpbar;
     public bool weapon;
     public override void _Ready()
     {
         speed = 25;
-
+        hpbar = GetNode("ProgressBar") as ProgressBar;
     }
         public override void _Input(InputEvent esemeny)
 	{
@@ -41,6 +42,7 @@ public class Enemy : Node2D
     {
         var enemy = GetNode("EnemyBody") as KinematicBody2D;
         var enemynode = enemy.Owner as Node2D;
+        hpbar.SetPosition(enemy.Position + new Vector2(-5, -10));
         var gamecucc = GetNode("/root/Game").Get("weaponuse"); 
         if(knifeattackarea && Convert.ToBoolean(gamecucc) == false){
             knifeattacktime += delta;
@@ -49,7 +51,6 @@ public class Enemy : Node2D
                 knifeattacktime = 0;
             }
         }
-        var hpbar = GetNode("EnemyBody/ProgressBar") as ProgressBar;
         hpbar.Value = hp;
         hpbar.RectRotation = 0;
         if(hp < 100){
@@ -75,8 +76,6 @@ public class Enemy : Node2D
         target = Position.DirectionTo((player.Position + playerbody.Position) - enemy.Position);
         if(attackorno == false && followorno){
             enemy_animatedsprite.Play("move");
-
-
             enemy.LookAt((player.Position + playerbody.Position));
             enemy.MoveAndSlide(target * speed);
         }
@@ -145,6 +144,11 @@ public class Enemy : Node2D
     public void _on_AreaShape_area_exited(Area2D areashape){
         if(areashape.Name == "KnifeArea"){
             knifeattackarea = false;
+        }
+    }
+    public void _on_AreaShape_body_entered(Node2D grenade){
+        if(grenade.IsInGroup("grenade")){
+            grenade.QueueFree();
         }
     }
     

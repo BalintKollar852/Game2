@@ -1,5 +1,9 @@
 using Godot;
 using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using File = System.IO.File;
+using System.IO;
 public class Game : Node2D
 {
     [Export] public PackedScene psBullet;
@@ -13,7 +17,7 @@ public class Game : Node2D
     private int bulletnumber = 60;
     public int hp = 100;
     public int gold;
-    public int maxammo = 120;
+    public int maxammo = 60;
     public int grenadeammo = 3;
     public bool weaponuse = true;
     private Node2D karakter;
@@ -21,11 +25,34 @@ public class Game : Node2D
     Random random = new Random();
     Timer timer;
     Label timerlabel;
+    CanvasLayer endmenu;
+    CanvasLayer pausemenu;
+    Label endmenupoints;
+    public ConfigBody config;
+    private string text;
+    Label fps;
+    Label completedtime;
     public override void _Ready()
     {
+        fps = GetNode("Character/HUD/Fps") as Label;
+        text = File.ReadAllText(@"options.json");
+        var get_options = JsonConvert.DeserializeObject<ConfigBody>(text);
+        if(get_options.fps){
+            fps.Visible = true;
+        }
+        else{
+            fps.Visible = false;
+        }
+        completedtime = GetNode("Character/End_Menu/Time") as Label;
+        config = new ConfigBody();
         timerlabel = GetNode("Character/HUD/Time") as Label;
         timer = GetNode("Timer") as Timer;
+        endmenu = GetNode("Character/End_Menu") as CanvasLayer;
+        pausemenu = GetNode("Character/Pause_Menu") as CanvasLayer;
+        endmenupoints = GetNode("Character/End_Menu/Points") as Label;
         timer.Start();
+        
+        // Lehessen választani egy világos és egy sötét pálya között (úgyan ez csak canvasmodulate) ahol a egy "lámpa" lenne a kezedbe és amerre nézel arra világítasz
         //Animációk beállítása
         // Loading screen (menűből a gameba) (zombiebackground képpel és azon egy progresbarral)
         // Beállításokba célkereszt lehessen választani (kurzort)
@@ -48,11 +75,11 @@ public class Game : Node2D
         }
     }
     public void on_ammoboxpickup(){
-        if((maxammo + 60) <= 240){
+        if((maxammo + 60) <= 120){
             maxammo += 60;
         }
         else{
-            maxammo = 240;
+            maxammo = 120;
         }
         grenadeammo = 5;
     }
@@ -83,13 +110,22 @@ public class Game : Node2D
                 AddChild(grenade);
            }
         }
+        if (Input.IsActionJustPressed("esc"))
+        {
+            GetTree().Paused = true;
+            pausemenu.Visible = true;
+        }
     }
     public override void _Process(float delta)
     {
-        if(hp >= 0){
+        fps.Text = "FPS: " + Convert.ToString(Math.Round(1/delta));
+        if(hp <= 0){
             GetTree().Paused = true;
+            endmenu.Visible = true;
         }
-        timerlabel.Text = $"{timer.WaitTime - timer.TimeLeft:N0}";
+        completedtime.Text = "Time: " + Convert.ToString(TimeSpan.FromSeconds(Math.Round(timer.WaitTime - timer.TimeLeft, 0)));
+        endmenupoints.Text ="Points: " + Convert.ToString(gold);
+        timerlabel.Text = Convert.ToString(TimeSpan.FromSeconds(Math.Round(timer.WaitTime - timer.TimeLeft, 0)));
         karakter = GetNode("Character") as Node2D;
         karakterbody = GetNode("Character/KinematicBody2D") as KinematicBody2D;
         var knife = GetNode("Character/HUD/Knife/Sprite") as Sprite;
@@ -97,7 +133,7 @@ public class Game : Node2D
         var weapon_background = GetNode("Character/HUD/Weapon_BackGround") as Sprite;
         var hpnumber = GetNode("Character/HUD/HPBar/Count/Background/Number") as Label;
         var hptexture = GetNode("Character/HUD/HPBar/TextureProgress") as TextureProgress;
-        var goldtexture = GetNode("Character/HUD/Gold") as Label;
+        var goldtexture = GetNode("Character/HUD/GoldPanel/Gold") as Label;
         var rifle_bulletnumber = GetNode("Character/HUD/Rifle/BulletNumber") as Label;
         var reload_texure = GetNode("Character/HUD/Rifle/Reload_ProgressBar") as ProgressBar;
         var grenade_number = GetNode("Character/HUD/Grenade/Number") as Label;
@@ -140,7 +176,7 @@ public class Game : Node2D
                 reload_texure.Visible = true;
                 reload_texure.Value = reloadtime;
                 if(reloadtime >= 2){
-                    if(maxammo >= 0 && maxammo <= 240){
+                    if(maxammo >= 0 && maxammo <= 120){
                         if(60 - bulletnumber <= maxammo){
                             maxammo -= 60 - bulletnumber;
                             bulletnumber = 60;
@@ -163,6 +199,22 @@ public class Game : Node2D
         }
         rifle_bulletnumber.Text = Convert.ToString(bulletnumber) + " / " + Convert.ToString(maxammo);
     }
+    public void _on_Restart_pressed(){
+        GetTree().Paused = false;
+        GetTree().ChangeScene("res://Game.tscn");
+    }
+     public void _on_Menu_pressed(){
+        GetTree().Paused = false;
+        GetTree().ChangeScene("res://Menu.tscn");
+    }
+    public void _on_Exit_pressed(){
+        GetTree().Quit();
+    }
+     public void _on_Resume_pressed(){
+        GetTree().Paused = false;
+        pausemenu.Visible = false;
+    }
+
 
 }
 

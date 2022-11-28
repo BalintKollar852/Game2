@@ -14,7 +14,7 @@ public class Menu : Node2D
 	private bool fpscounter;
 	private string text;
 	private Label fpscountershow;
-	public ConfigBody config;
+	private ConfigBody config;
     Panel optionspanel;
 	Panel buttonsmenu;
 	public override void _Ready()
@@ -39,7 +39,7 @@ public class Menu : Node2D
 		var get_options = JsonConvert.DeserializeObject<ConfigBody>(text);
 		bool getfullscreen = config.fullscreen;
 		bool getfpscounter = config.fps;
-		fpscountershow.Text = Convert.ToString(Math.Round(1/delta));
+		fpscountershow.Text =  "FPS: " + Convert.ToString(Math.Round(1/delta));
 		if(getfullscreen){
 			OS.WindowFullscreen = true;
 		}
