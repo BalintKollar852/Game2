@@ -57,11 +57,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\SAJÁT MEGHAJTÓ\\PROGRAMOZÁS\\GODOT\\GAME2\\Projekt2.csproj",
+      "projectUniqueName": "C:\\Users\\balin\\OneDrive\\Dokumentumok\\GitHub\\Game2TESZT\\Game2\\Projekt2.csproj",
       "projectName": "Projekt2",
-      "projectPath": "E:\\SAJÁT MEGHAJTÓ\\PROGRAMOZÁS\\GODOT\\GAME2\\Projekt2.csproj",
+      "projectPath": "C:\\Users\\balin\\OneDrive\\Dokumentumok\\GitHub\\Game2TESZT\\Game2\\Projekt2.csproj",
       "packagesPath": "C:\\Users\\balin\\.nuget\\packages\\",
-      "outputPath": "E:\\SAJÁT MEGHAJTÓ\\PROGRAMOZÁS\\GODOT\\Game2\\.mono\\temp\\obj\\",
+      "outputPath": "C:\\Users\\balin\\OneDrive\\Dokumentumok\\GitHub\\Game2TESZT\\Game2\\.mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
