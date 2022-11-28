@@ -902,7 +902,7 @@ layer = 2
 visible = false
 
 [node name="Panel" type="Panel" parent="Character/Pause_Menu"]
-self_modulate = Color( 1, 1, 1, 0.490196 )
+self_modulate = Color( 0, 0, 0, 0.490196 )
 margin_left = 2.0
 margin_right = 1024.0
 margin_bottom = 599.0

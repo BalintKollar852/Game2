@@ -54,11 +54,11 @@ public class Game : Node2D
         
         // Lehessen választani egy világos és egy sötét pálya között (úgyan ez csak canvasmodulate) ahol a egy "lámpa" lenne a kezedbe és amerre nézel arra világítasz
         //Animációk beállítása
-        // Loading screen (menűből a gameba) (zombiebackground képpel és azon egy progresbarral)
         // Beállításokba célkereszt lehessen választani (kurzort)
+        // Esetleg a gránát sebzése attól függjön, hogy a gránát collison körének középpontjától milyen távolságban voltál
     }
     public void on_grenadedamage(){
-        hp -= 35;
+        hp -= 15;
     }
     public void on_enemyattack(){
         hp -= 5;
