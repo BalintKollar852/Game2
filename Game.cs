@@ -10,23 +10,23 @@ public class Game : Node2D
     private float elapsedtime;
     private float reloadtime;
     private float enemyspawntime;
-    private int bulletnumber = 30;
+    private int bulletnumber = 60;
     public int hp = 100;
     public int gold;
-    public int maxammo = 90;
-    public int grenadeammo = 2;
+    public int maxammo = 120;
+    public int grenadeammo = 3;
     public bool weaponuse = true;
     private Node2D karakter;
     private KinematicBody2D karakterbody;
     Random random = new Random();
+    Timer timer;
+    Label timerlabel;
     public override void _Ready()
     {
-        
-        // Amerre néz a karakter egy kis flasflight (picit sötét lenne a map)
+        timerlabel = GetNode("Character/HUD/Time") as Label;
+        timer = GetNode("Timer") as Timer;
+        timer.Start();
         //Animációk beállítása
-        // Ne tudj lőni reload közben
-        // Az enemy hud ne buggoljon 
-        // Gránát mozgása buggos (a tilemapre müködjön a collisonje a többire ne (layer/mask) )
         // Loading screen (menűből a gameba) (zombiebackground képpel és azon egy progresbarral)
         // Beállításokba célkereszt lehessen választani (kurzort)
     }
@@ -40,21 +40,21 @@ public class Game : Node2D
         gold++;
     }
     public void on_characterheal(){
-        if((hp + 25) <= 100){
-            hp += 25;
+        if((hp + 50) <= 100){
+            hp += 50;
         }
         else{
             hp = 100;
         }
     }
     public void on_ammoboxpickup(){
-        if((maxammo + 60) <= 150){
+        if((maxammo + 60) <= 240){
             maxammo += 60;
         }
         else{
-            maxammo = 150;
+            maxammo = 240;
         }
-        grenadeammo = 3;
+        grenadeammo = 5;
     }
     public override void _Input(InputEvent esemeny)
 	{
@@ -86,6 +86,10 @@ public class Game : Node2D
     }
     public override void _Process(float delta)
     {
+        if(hp >= 0){
+            GetTree().Paused = true;
+        }
+        timerlabel.Text = $"{timer.WaitTime - timer.TimeLeft:N0}";
         karakter = GetNode("Character") as Node2D;
         karakterbody = GetNode("Character/KinematicBody2D") as KinematicBody2D;
         var knife = GetNode("Character/HUD/Knife/Sprite") as Sprite;
@@ -121,7 +125,7 @@ public class Game : Node2D
         }
         elapsedtime += delta;
         if(weaponuse){
-            if(mousedown == true){
+            if(mousedown == true && Input.IsActionPressed("r") == false){
                 if(elapsedtime >= 0.3f && bulletnumber > 0){
                     Node2D bullet = (Node2D)psBullet.Instance();
 		    	    bullet.Position = karakter.Position + karakterbody.Position;
@@ -136,14 +140,14 @@ public class Game : Node2D
                 reload_texure.Visible = true;
                 reload_texure.Value = reloadtime;
                 if(reloadtime >= 2){
-                    if(maxammo >= 0 && maxammo <= 150){
-                        if(30 - bulletnumber <= maxammo){
-                            maxammo -= 30 - bulletnumber;
-                            bulletnumber = 30;
+                    if(maxammo >= 0 && maxammo <= 240){
+                        if(60 - bulletnumber <= maxammo){
+                            maxammo -= 60 - bulletnumber;
+                            bulletnumber = 60;
                             reloadtime = 0;
                             reload_texure.Value = 0;
                         }
-                        if(30 - bulletnumber > maxammo){
+                        if(60 - bulletnumber > maxammo){
                             maxammo = 0;
                             bulletnumber = bulletnumber + maxammo;
                             reloadtime = 0;

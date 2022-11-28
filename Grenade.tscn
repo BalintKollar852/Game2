@@ -16,8 +16,6 @@ script = ExtResource( 2 )
 psExplosion = ExtResource( 3 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["grenade"]]
-collision_layer = 2
-collision_mask = 2
 mass = 2.55102
 physics_material_override = SubResource( 3 )
 gravity_scale = 0.0
