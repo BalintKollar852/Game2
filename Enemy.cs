@@ -3,8 +3,6 @@ using System;
 
 public class Enemy : Node2D
 {
-    // Majd a tilemapen csak megadott helyen spawnoljanak
-    // Csak akkor lehessen őket keselni ha a bal klikket lenyomod 1x nem spamelve
     [Export] public PackedScene psGold;
     [Signal] delegate void EnemyAttack();
     public float speed;
@@ -41,11 +39,13 @@ public class Enemy : Node2D
     
     public override void _Process(float delta)
     {
+        var enemy = GetNode("EnemyBody") as KinematicBody2D;
+        var enemynode = enemy.Owner as Node2D;
         var gamecucc = GetNode("/root/Game").Get("weaponuse"); 
         if(knifeattackarea && Convert.ToBoolean(gamecucc) == false){
             knifeattacktime += delta;
             if(knifeattacktime >= 0.5f && mousedown){
-                hp -= 20;
+                hp -= 35;
                 knifeattacktime = 0;
             }
         }
@@ -59,13 +59,18 @@ public class Enemy : Node2D
             hpbar.Visible = false;
         }
         if(hp <= 0){
+            var game = GetNode<Game>("/root/Game");
+            var gamenode = GetTree().Root.GetNode("Game") as Node2D;
+            Node2D gold = (Node2D)psGold.Instance();
+            gold.Position = enemynode.Position + enemy.Position;
+            gold.Connect("GoldPickUp",game,"on_goldpickup");
+		    gamenode.AddChild(gold);
             QueueFree();
         }
         fps = 1 / delta;
         var player = GetNode<Character>("../Character");
         var playerbody = GetNode<KinematicBody2D>("../Character/KinematicBody2D");
         var enemy_animatedsprite = GetNode("EnemyBody/AnimatedSprite") as AnimatedSprite;
-        var enemy = GetNode("EnemyBody") as KinematicBody2D;
         
         target = Position.DirectionTo((player.Position + playerbody.Position) - enemy.Position);
         if(attackorno == false && followorno){
@@ -90,20 +95,6 @@ public class Enemy : Node2D
         }
     }
     public void _on_Enemy_tree_exiting(){
-        var game = GetNode<Game>("/root/Game");
-        int droporno;
-        Random random = new Random();
-        droporno = random.Next(0, 2);
-        if(droporno == 1){
-            //Valmi baj van itt
-            var gamenode = GetTree().Root.GetNode("Game") as Node2D;
-            var enemy = GetNode("EnemyBody") as KinematicBody2D;
-            var enemynode = enemy.Owner as Node2D;
-            Node2D gold = (Node2D)psGold.Instance();
-            gold.Position = enemynode.Position + enemy.Position;
-            gold.Connect("GoldPickUp",game,"on_goldpickup");
-		    gamenode.AddChild(gold);
-        }
     }
     public void _on_Follow_body_entered(KinematicBody2D karakter){
         var enemy_animatedsprite = GetNode("EnemyBody/AnimatedSprite") as AnimatedSprite;
@@ -141,14 +132,14 @@ public class Enemy : Node2D
         // Ahány db lövedék van egyszerre benne anyiszor kene levonni
         var areanodecucc = areashape.Owner as Node2D;
         if(areanodecucc.IsInGroup("bullet")){
-            hp -= 25;
+            hp -= 50;
             areashape.Owner.QueueFree();
         }
         if(areashape.Name == "KnifeArea"){
             knifeattackarea = true;
         }
         if(areashape.IsInGroup("explosion")){
-            hp -= 50;
+            hp -= 75;
         }
     }
     public void _on_AreaShape_area_exited(Area2D areashape){
