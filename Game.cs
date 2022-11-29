@@ -32,8 +32,12 @@ public class Game : Node2D
     private string text;
     Label fps;
     Label completedtime;
+    AnimationPlayer daynight;
     public override void _Ready()
     {
+        daynight = GetNode("CanvasModulate/AnimationPlayer") as AnimationPlayer;
+        daynight.Play("Day_Night_Cycle");
+        daynight.GetAnimation("Day_Night_Cycle").Loop = true;
         fps = GetNode("Character/HUD/Fps") as Label;
         text = File.ReadAllText(@"options.json");
         var get_options = JsonConvert.DeserializeObject<ConfigBody>(text);
@@ -53,9 +57,11 @@ public class Game : Node2D
         timer.Start();
         
         // Lehessen választani egy világos és egy sötét pálya között (úgyan ez csak canvasmodulate) ahol a egy "lámpa" lenne a kezedbe és amerre nézel arra világítasz
+        // Vagy a napok váltakozása
         //Animációk beállítása
         // Beállításokba célkereszt lehessen választani (kurzort)
         // Esetleg a gránát sebzése attól függjön, hogy a gránát collison körének középpontjától milyen távolságban voltál
+        // Minimap?
     }
     public void on_grenadedamage(){
         hp -= 15;
