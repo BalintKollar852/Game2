@@ -47,3 +47,14 @@ C:\Users\balin\OneDrive\Dokumentumok\GitHub\Game2TESZT\Game2\.mono\temp\obj\Debu
 C:\Users\balin\OneDrive\Dokumentumok\GitHub\Game2TESZT\Game2\.mono\temp\obj\Debug\Projekt2.csproj.CopyComplete
 C:\Users\balin\OneDrive\Dokumentumok\GitHub\Game2TESZT\Game2\.mono\temp\obj\Debug\Projekt2.dll
 C:\Users\balin\OneDrive\Dokumentumok\GitHub\Game2TESZT\Game2\.mono\temp\obj\Debug\Projekt2.pdb
+C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\Game2\.mono\temp\bin\Debug\Projekt2.dll
+C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\Game2\.mono\temp\bin\Debug\Projekt2.pdb
+C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\Game2\.mono\temp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\Game2\.mono\temp\obj\Debug\Projekt2.csproj.AssemblyReference.cache
+C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\Game2\.mono\temp\obj\Debug\Projekt2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\Game2\.mono\temp\obj\Debug\Projekt2.AssemblyInfoInputs.cache
+C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\Game2\.mono\temp\obj\Debug\Projekt2.AssemblyInfo.cs
+C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\Game2\.mono\temp\obj\Debug\Projekt2.csproj.CoreCompileInputs.cache
+C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\Game2\.mono\temp\obj\Debug\Projekt2.csproj.CopyComplete
+C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\Game2\.mono\temp\obj\Debug\Projekt2.dll
+C:\Users\kollar.balint_csany-\Documents\GitHub\Game2\Game2\.mono\temp\obj\Debug\Projekt2.pdb

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DXArkVkz93stGsPqn628TpAZcBiku36ZsSQFEFx36dLx1oTBHWxmTuqTs3H4n23R4SCFGtq28S1FzK7IQnFlhw==",
+  "dgSpecHash": "v/sBgIGxwK1vp9DisE5ezKm/Jx1Q4T9/5mILj6A9GnJlU4jbZreisxfEWvNDYTCH1VWgQY2pRDXWajJ7Rc4jfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\balin\\OneDrive\\Dokumentumok\\GitHub\\Game2TESZT\\Game2\\Projekt2.csproj",
+  "projectFilePath": "C:\\Users\\kollar.balint_csany-\\Documents\\GitHub\\Game2\\Game2\\Projekt2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\balin\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+    "C:\\Users\\kollar.balint_csany-\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
   ],
   "logs": []
 }
