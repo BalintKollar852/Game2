@@ -13,4 +13,10 @@ public class ConfigBody
         get { return fpsvalue; }
         set { fpsvalue = value; }
     }
+    private static bool crosshairvalue;
+    public bool crosshair
+    {
+        get { return crosshairvalue; }
+        set { crosshairvalue = value; }
+    }
 }

@@ -11,14 +11,14 @@ public class Grenade : Node2D
     private float speed;
     public override void _Ready()
     {
-        speed = 50;
+        speed = 25;
         grenadebody = GetNode("KinematicBody2D") as KinematicBody2D;
         target = GetGlobalMousePosition();
         irany = Position.DirectionTo(target) * speed; 
     }
     public override void _Process(float delta)
     {
-        // Error itt
+        // Move and slide ra errorokat dob
         grenadebody.MoveAndSlide(irany);
         explosiontime += delta;
         if(explosiontime >= 3){

@@ -13,12 +13,15 @@ public class Menu : Node2D
     private bool options;
 	private bool fpscounter;
 	private string text;
+	private bool crosshair;
 	private Label fpscountershow;
 	private ConfigBody config;
     Panel optionspanel;
 	Panel buttonsmenu;
+	Resource arrow;
 	public override void _Ready()
 	{
+		arrow = ResourceLoader.Load("res://crosshair.png");
 		buttonsmenu = GetNode("Buttons") as Panel;
 		fpscountershow = GetNode("Menubackground/Camera2D/CanvasLayer/Fps") as Label;
 		zoomcamera = GetNode("Menubackground/Camera2D") as Camera2D;
@@ -26,10 +29,12 @@ public class Menu : Node2D
 		config = new ConfigBody();
 		text = File.ReadAllText(@"options.json");
 		var fullscreengomb = GetNode("OptionsPanel/Fullscreen") as CheckButton;
+		var crosshairbutton = GetNode("OptionsPanel/Crosshair") as CheckButton;
 		var fpscounterbutton = GetNode("OptionsPanel/FpsCounter") as CheckButton;
 		var get_options = JsonConvert.DeserializeObject<ConfigBody>(text);
 		fullscreengomb.Pressed = config.fullscreen;
 		fpscounterbutton.Pressed = config.fps;
+		crosshairbutton.Pressed = config.crosshair;
 		
 	}
 	public override void _Process(float delta)
@@ -37,16 +42,20 @@ public class Menu : Node2D
 		config = new ConfigBody();
 		text = File.ReadAllText(@"options.json");
 		var get_options = JsonConvert.DeserializeObject<ConfigBody>(text);
-		bool getfullscreen = config.fullscreen;
-		bool getfpscounter = config.fps;
 		fpscountershow.Text =  "FPS: " + Convert.ToString(Math.Round(1/delta));
-		if(getfullscreen){
+		if(config.crosshair){
+			Input.SetCustomMouseCursor(arrow);
+		}
+		else{
+			Input.SetCustomMouseCursor(null);
+		}
+		if(config.fullscreen){
 			OS.WindowFullscreen = true;
 		}
 		else{
 			OS.WindowFullscreen = false;
 		}
-		if(getfpscounter){
+		if(config.fps){
 			fpscountershow.Visible = true;
 		}
 		else{
@@ -109,10 +118,20 @@ public class Menu : Node2D
            	fullscreen = false;
         }
     }
+	
+	private void _on_Crosshair_toggled(bool button_pressed){
+		if(button_pressed){
+			crosshair = true;
+        }
+        else{
+           	crosshair = false;
+        }
+	}
 	public void _on_Save_pressed(){
         JObject options = new JObject(
         new JProperty("Fullscreen", fullscreen),
-		new JProperty("FPS", fpscounter)
+		new JProperty("FPS", fpscounter),
+		new JProperty("Crosshair", crosshair)
 		);
 		File.WriteAllText(@"options.json", options.ToString());
 		using (StreamWriter file = File.CreateText(@"options.json"))
