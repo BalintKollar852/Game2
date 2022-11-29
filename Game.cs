@@ -33,10 +33,13 @@ public class Game : Node2D
     Label fps;
     Label completedtime;
     AnimationPlayer daynight;
+    Light2D flashlight;
     public override void _Ready()
     {
+        flashlight = GetNode("Character/KinematicBody2D/Light2D") as Light2D;
         daynight = GetNode("CanvasModulate/AnimationPlayer") as AnimationPlayer;
         daynight.Play("Day_Night_Cycle");
+        daynight.Seek(random.Next(0, 101));
         daynight.GetAnimation("Day_Night_Cycle").Loop = true;
         fps = GetNode("Character/HUD/Fps") as Label;
         text = File.ReadAllText(@"options.json");
@@ -55,11 +58,7 @@ public class Game : Node2D
         pausemenu = GetNode("Character/Pause_Menu") as CanvasLayer;
         endmenupoints = GetNode("Character/End_Menu/Points") as Label;
         timer.Start();
-        
-        // Lehessen választani egy világos és egy sötét pálya között (úgyan ez csak canvasmodulate) ahol a egy "lámpa" lenne a kezedbe és amerre nézel arra világítasz
-        // Vagy a napok váltakozása
         //Animációk beállítása
-        // Beállításokba célkereszt lehessen választani (kurzort)
         // Esetleg a gránát sebzése attól függjön, hogy a gránát collison körének középpontjától milyen távolságban voltál
         // Minimap?
     }
@@ -124,6 +123,12 @@ public class Game : Node2D
     }
     public override void _Process(float delta)
     {
+        if(daynight.CurrentAnimationPosition > 22 &&  daynight.CurrentAnimationPosition < 85){
+            flashlight.Enabled = false;
+        }
+        else{
+            flashlight.Enabled = true;
+        }
         fps.Text = "FPS: " + Convert.ToString(Math.Round(1/delta));
         if(hp <= 0){
             GetTree().Paused = true;

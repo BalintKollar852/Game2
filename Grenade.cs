@@ -11,7 +11,7 @@ public class Grenade : Node2D
     private float speed;
     public override void _Ready()
     {
-        speed = 25;
+        speed = 45;
         grenadebody = GetNode("KinematicBody2D") as KinematicBody2D;
         target = GetGlobalMousePosition();
         irany = Position.DirectionTo(target) * speed; 
