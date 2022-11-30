@@ -124,7 +124,7 @@ scale = Vector2( 0.2, 0.2 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 7
+frame = 13
 speed_scale = 3.0
 playing = true
 
