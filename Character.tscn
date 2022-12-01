@@ -175,6 +175,7 @@ position = Vector2( 5, 5 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 1 )
 animation = "knife_attack"
+frame = 12
 speed_scale = 3.0
 playing = true
 

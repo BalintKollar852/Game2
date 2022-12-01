@@ -163,9 +163,9 @@ public class Game : Node2D
         hptexture.Value = hp;
         goldtexture.Text = Convert.ToString(gold);
         enemyspawntime += delta;
-        if(enemyspawntime >= 3){
+        if(enemyspawntime >= 4){
             Node2D enemy = (Node2D)psEnemy.Instance();
-            enemy.Position = new Vector2(random.Next(0, 200), random.Next(0, 200));
+            enemy.Position = new Vector2(random.Next(-64, 368), random.Next(-48, 176));
             enemy.Connect("EnemyAttack",this,"on_enemyattack");
             AddChild(enemy);
             enemyspawntime = 0;
