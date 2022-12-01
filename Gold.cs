@@ -7,7 +7,6 @@ public class Gold : Node2D
     private bool pickup;
     public override void _Ready()
     {
-        //Amikor a karakter belemegy az Area2D be akkor egy labelt dobjon fel és e betűvel lehessen felvenni
         
     }
     public override void _Process(float delta)

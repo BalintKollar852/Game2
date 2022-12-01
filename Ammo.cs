@@ -3,7 +3,6 @@ using System;
 
 public class Ammo : Node2D
 {
-    // Ez is úgyan úgy működne mint a heal (tf2-höz hasonlóan)
     [Signal] delegate void AmmoBoxPickUp();
     private int maxammo;
      private int grenadeammo;

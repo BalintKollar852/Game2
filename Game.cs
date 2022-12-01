@@ -58,9 +58,6 @@ public class Game : Node2D
         pausemenu = GetNode("Character/Pause_Menu") as CanvasLayer;
         endmenupoints = GetNode("Character/End_Menu/Points") as Label;
         timer.Start();
-        //Animációk beállítása
-        // Esetleg a gránát sebzése attól függjön, hogy a gránát collison körének középpontjától milyen távolságban voltál
-        // Minimap?
     }
     public void on_grenadedamage(){
         hp -= 15;

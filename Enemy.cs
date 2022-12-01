@@ -123,8 +123,6 @@ public class Enemy : Node2D
         }
     }
     public void _on_AreaShape_area_entered(Area2D areashape){
-        // Ha több darab lövedék jön akkor valamiért szar
-        // Ahány db lövedék van egyszerre benne anyiszor kene levonni
         var areanodecucc = areashape.Owner as Node2D;
         if(areanodecucc.IsInGroup("bullet")){
             hp -= 50;
