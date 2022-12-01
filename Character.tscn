@@ -1,17 +1,17 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=124 format=2]
 
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_8.png" type="Texture" id=1]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_2.png" type="Texture" id=1]
 [ext_resource path="res://Character.cs" type="Script" id=2]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_12.png" type="Texture" id=3]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_11.png" type="Texture" id=3]
 [ext_resource path="res://Character/rifle/idle/survivor-idle_rifle_2.png" type="Texture" id=4]
 [ext_resource path="res://Character/rifle/idle/survivor-idle_rifle_3.png" type="Texture" id=5]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_10.png" type="Texture" id=6]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_8.png" type="Texture" id=6]
 [ext_resource path="res://Character/rifle/idle/survivor-idle_rifle_6.png" type="Texture" id=7]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_13.png" type="Texture" id=8]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_13.png" type="Texture" id=8]
 [ext_resource path="res://Character/rifle/idle/survivor-idle_rifle_1.png" type="Texture" id=9]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_11.png" type="Texture" id=10]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_14.png" type="Texture" id=11]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_9.png" type="Texture" id=12]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_14.png" type="Texture" id=10]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_12.png" type="Texture" id=11]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_1.png" type="Texture" id=12]
 [ext_resource path="res://Character/rifle/idle/survivor-idle_rifle_0.png" type="Texture" id=13]
 [ext_resource path="res://Character/rifle/idle/survivor-idle_rifle_5.png" type="Texture" id=14]
 [ext_resource path="res://Character/rifle/idle/survivor-idle_rifle_4.png" type="Texture" id=15]
@@ -29,22 +29,22 @@
 [ext_resource path="res://Character/rifle/idle/survivor-idle_rifle_16.png" type="Texture" id=27]
 [ext_resource path="res://Character/rifle/idle/survivor-idle_rifle_14.png" type="Texture" id=28]
 [ext_resource path="res://Character/rifle/move/survivor-move_rifle_19.png" type="Texture" id=29]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_4.png" type="Texture" id=30]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_0.png" type="Texture" id=31]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_3.png" type="Texture" id=30]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_4.png" type="Texture" id=31]
 [ext_resource path="res://Character/rifle/move/survivor-move_rifle_14.png" type="Texture" id=32]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_2.png" type="Texture" id=33]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_5.png" type="Texture" id=33]
 [ext_resource path="res://Character/rifle/move/survivor-move_rifle_18.png" type="Texture" id=34]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_5.png" type="Texture" id=35]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_6.png" type="Texture" id=36]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_7.png" type="Texture" id=37]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_10.png" type="Texture" id=35]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_6.png" type="Texture" id=36]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_7.png" type="Texture" id=37]
 [ext_resource path="res://Character/rifle/move/survivor-move_rifle_12.png" type="Texture" id=38]
 [ext_resource path="res://Character/rifle/move/survivor-move_rifle_16.png" type="Texture" id=39]
 [ext_resource path="res://Character/rifle/move/survivor-move_rifle_11.png" type="Texture" id=40]
 [ext_resource path="res://Character/rifle/move/survivor-move_rifle_13.png" type="Texture" id=41]
 [ext_resource path="res://Character/rifle/move/survivor-move_rifle_17.png" type="Texture" id=42]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_1.png" type="Texture" id=43]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_9.png" type="Texture" id=43]
 [ext_resource path="res://Character/rifle/move/survivor-move_rifle_15.png" type="Texture" id=44]
-[ext_resource path="res://Character/rifle/meleeattack/survivor-meleeattack_rifle_3.png" type="Texture" id=45]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_0.png" type="Texture" id=45]
 [ext_resource path="res://Character/rifle/shoot/survivor-shoot_rifle_0.png" type="Texture" id=46]
 [ext_resource path="res://Character/rifle/move/survivor-move_rifle_2.png" type="Texture" id=47]
 [ext_resource path="res://Character/rifle/move/survivor-move_rifle_3.png" type="Texture" id=48]
@@ -81,6 +81,46 @@
 [ext_resource path="res://Character/rifle/reload/survivor-reload_rifle_14.png" type="Texture" id=79]
 [ext_resource path="res://icon.png" type="Texture" id=80]
 [ext_resource path="res://light.png" type="Texture" id=81]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_6.png" type="Texture" id=82]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_7.png" type="Texture" id=83]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_7.png" type="Texture" id=84]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_4.png" type="Texture" id=85]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_12.png" type="Texture" id=86]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_15.png" type="Texture" id=87]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_17.png" type="Texture" id=88]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_0.png" type="Texture" id=89]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_5.png" type="Texture" id=90]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_10.png" type="Texture" id=91]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_16.png" type="Texture" id=92]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_13.png" type="Texture" id=93]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_6.png" type="Texture" id=94]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_18.png" type="Texture" id=95]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_14.png" type="Texture" id=96]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_2.png" type="Texture" id=97]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_8.png" type="Texture" id=98]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_9.png" type="Texture" id=99]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_11.png" type="Texture" id=100]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_19.png" type="Texture" id=101]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_0.png" type="Texture" id=102]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_1.png" type="Texture" id=103]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_2.png" type="Texture" id=104]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_3.png" type="Texture" id=105]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_4.png" type="Texture" id=106]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_3.png" type="Texture" id=107]
+[ext_resource path="res://Character/knife/meleeattack/survivor-meleeattack_knife_5.png" type="Texture" id=108]
+[ext_resource path="res://Character/knife/idle/survivor-idle_knife_1.png" type="Texture" id=109]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_18.png" type="Texture" id=110]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_19.png" type="Texture" id=111]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_15.png" type="Texture" id=112]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_17.png" type="Texture" id=113]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_8.png" type="Texture" id=114]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_9.png" type="Texture" id=115]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_11.png" type="Texture" id=116]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_10.png" type="Texture" id=117]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_13.png" type="Texture" id=118]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_12.png" type="Texture" id=119]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_14.png" type="Texture" id=120]
+[ext_resource path="res://Character/knife/move/survivor-move_knife_16.png" type="Texture" id=121]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -89,9 +129,19 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 43 ), ExtResource( 33 ), ExtResource( 45 ), ExtResource( 30 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 1 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 108 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 6 ), ExtResource( 43 ), ExtResource( 35 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "meele",
+"name": "knife_attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 89 ), ExtResource( 109 ), ExtResource( 97 ), ExtResource( 107 ), ExtResource( 85 ), ExtResource( 90 ), ExtResource( 94 ), ExtResource( 84 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 91 ), ExtResource( 100 ), ExtResource( 86 ), ExtResource( 93 ), ExtResource( 96 ), ExtResource( 87 ), ExtResource( 92 ), ExtResource( 88 ), ExtResource( 95 ), ExtResource( 101 ) ],
+"loop": true,
+"name": "knife_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 117 ), ExtResource( 116 ), ExtResource( 119 ), ExtResource( 118 ), ExtResource( 120 ), ExtResource( 112 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 110 ), ExtResource( 111 ) ],
+"loop": true,
+"name": "knife_move",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 53 ), ExtResource( 54 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 55 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 59 ), ExtResource( 40 ), ExtResource( 38 ), ExtResource( 41 ), ExtResource( 32 ), ExtResource( 44 ), ExtResource( 39 ), ExtResource( 42 ), ExtResource( 34 ), ExtResource( 29 ) ],
@@ -111,7 +161,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 71, 34 )
+extents = Vector2( 45, 65 )
 
 [node name="Character" type="Node2D" groups=["character"]]
 position = Vector2( -1, -1 )
@@ -121,10 +171,10 @@ script = ExtResource( 2 )
 scale = Vector2( 0.2, 0.2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+position = Vector2( 5, 5 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 1 )
-animation = "idle"
-frame = 13
+animation = "knife_attack"
 speed_scale = 3.0
 playing = true
 
@@ -139,7 +189,8 @@ zoom = Vector2( 0.4, 0.4 )
 [node name="KnifeArea" type="Area2D" parent="KinematicBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/KnifeArea"]
-position = Vector2( 72, 1 )
+position = Vector2( 40, -5 )
+scale = Vector2( 0.999999, 0.999999 )
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D/KnifeArea"]

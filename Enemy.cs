@@ -17,25 +17,15 @@ public class Enemy : Node2D
     public int hp = 100; 
     private int db; 
     private bool knifeattackarea; 
-    private float knifeattacktime; 
-    private bool mousedown;
     private ProgressBar hpbar;
     public bool weapon;
+    private float mousedown;
+    private bool leftbutton;
+    Character charactergame = new Character();
     public override void _Ready()
     {
         speed = 25;
         hpbar = GetNode("ProgressBar") as ProgressBar;
-    }
-        public override void _Input(InputEvent esemeny)
-	{
-		if(esemeny is InputEventMouseButton eger){
-            if(eger.Pressed && eger.ButtonIndex == 1){
-			    mousedown = true;
-        	}
-            else if(eger.ButtonIndex == 1 && eger.Pressed == false){
-			    mousedown = false;
-        	}
-        }
     }
     
     public override void _Process(float delta)
@@ -45,10 +35,16 @@ public class Enemy : Node2D
         hpbar.SetPosition(enemy.Position + new Vector2(-5, -10));
         var gamecucc = GetNode("/root/Game").Get("weaponuse"); 
         if(knifeattackarea && Convert.ToBoolean(gamecucc) == false){
-            knifeattacktime += delta;
-            if(knifeattacktime >= 0.5f && mousedown){
+            if(Input.IsActionJustPressed("left_button")){
+                leftbutton = true;
+            }
+            if(leftbutton){
+                mousedown += delta;
+            }
+            if(mousedown >= 0.5f){
                 hp -= 35;
-                knifeattacktime = 0;
+                mousedown = 0;
+                leftbutton = false;
             }
         }
         hpbar.Value = hp;
