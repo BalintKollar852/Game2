@@ -1056,6 +1056,14 @@ margin_bottom = 297.0
 custom_fonts/font = SubResource( 35 )
 text = "Time:"
 
+[node name="Besttime" type="Label" parent="Character/End_Menu"]
+margin_left = 19.0
+margin_top = 192.0
+margin_right = 297.0
+margin_bottom = 241.0
+custom_fonts/font = SubResource( 35 )
+text = "Best Time/Points:"
+
 [node name="Heal_Block" parent="." instance=ExtResource( 23 )]
 position = Vector2( 56, 168 )
 

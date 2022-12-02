@@ -34,6 +34,12 @@ public class Game : Node2D
     Label completedtime;
     AnimationPlayer daynight;
     Light2D flashlight;
+    Label bestpointsandtime;
+    private bool fullscreen;
+    private bool fpscounter;
+    private bool crosshair;
+    private float besttime;
+    private int bestpoints;
     public override void _Ready()
     {
         flashlight = GetNode("Character/KinematicBody2D/Light2D") as Light2D;
@@ -57,7 +63,11 @@ public class Game : Node2D
         endmenu = GetNode("Character/End_Menu") as CanvasLayer;
         pausemenu = GetNode("Character/Pause_Menu") as CanvasLayer;
         endmenupoints = GetNode("Character/End_Menu/Points") as Label;
+        bestpointsandtime = GetNode("Character/End_Menu/Besttime") as Label; 
         timer.Start();
+        fullscreen = config.fullscreen;
+        fpscounter = config.fps;
+        crosshair = config.crosshair;
     }
     public void on_grenadedamage(){
         hp -= 15;
@@ -120,6 +130,7 @@ public class Game : Node2D
     }
     public override void _Process(float delta)
     {
+        var get_options = JsonConvert.DeserializeObject<ConfigBody>(text);
         if(daynight.CurrentAnimationPosition > 22 &&  daynight.CurrentAnimationPosition < 85){
             flashlight.Enabled = false;
         }
@@ -128,6 +139,15 @@ public class Game : Node2D
         }
         fps.Text = "FPS: " + Convert.ToString(Math.Round(1/delta));
         if(hp <= 0){
+            if(config.bestpoints <= gold){
+                besttime = timer.WaitTime - timer.TimeLeft;
+                bestpoints = gold;
+                SaveToFile();
+                bestpointsandtime.Text = "Best Points/Time: \n" + Convert.ToString(bestpoints) + " / " + Convert.ToString(TimeSpan.FromSeconds(Math.Round(besttime, 0)));
+            }
+            else{
+                bestpointsandtime.Text = "Best Points/Time: \n" + Convert.ToString(config.bestpoints) + " / " + Convert.ToString(TimeSpan.FromSeconds(Math.Round(config.besttime, 0)));
+            }
             GetTree().Paused = true;
             endmenu.Visible = true;
         }
@@ -160,7 +180,7 @@ public class Game : Node2D
         hptexture.Value = hp;
         goldtexture.Text = Convert.ToString(gold);
         enemyspawntime += delta;
-        if(enemyspawntime >= 4){
+        if(enemyspawntime >= 3){
             Node2D enemy = (Node2D)psEnemy.Instance();
             enemy.Position = new Vector2(random.Next(-64, 368), random.Next(-48, 176));
             enemy.Connect("EnemyAttack",this,"on_enemyattack");
@@ -223,6 +243,21 @@ public class Game : Node2D
         pausemenu.Visible = false;
     }
 
+    public void SaveToFile(){
+        JObject options = new JObject(
+        new JProperty("Fullscreen", fullscreen),
+		new JProperty("FPS", fpscounter),
+		new JProperty("Crosshair", crosshair),
+        new JProperty("BestTime", besttime),
+		new JProperty("BestPoints", bestpoints)
+		);
+		File.WriteAllText(@"options.json", options.ToString());
+		using (StreamWriter file = File.CreateText(@"options.json"))
+		using (JsonTextWriter writer = new JsonTextWriter(file))
+		{
+			options.WriteTo(writer);
+		}
+	}
 
 }
 

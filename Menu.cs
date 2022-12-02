@@ -19,6 +19,8 @@ public class Menu : Node2D
     Panel optionspanel;
 	Panel buttonsmenu;
 	Resource arrow;
+	private float besttime;
+	private int bestpoints;
 	public override void _Ready()
 	{
 		arrow = ResourceLoader.Load("res://crosshair.png");
@@ -40,6 +42,8 @@ public class Menu : Node2D
 	public override void _Process(float delta)
 	{
 		config = new ConfigBody();
+		besttime = config.besttime;
+		bestpoints = config.bestpoints;
 		text = File.ReadAllText(@"options.json");
 		var get_options = JsonConvert.DeserializeObject<ConfigBody>(text);
 		fpscountershow.Text =  "FPS: " + Convert.ToString(Math.Round(1/delta));
@@ -131,7 +135,9 @@ public class Menu : Node2D
         JObject options = new JObject(
         new JProperty("Fullscreen", fullscreen),
 		new JProperty("FPS", fpscounter),
-		new JProperty("Crosshair", crosshair)
+		new JProperty("Crosshair", crosshair),
+		new JProperty("BestTime", besttime),
+		new JProperty("BestPoints", bestpoints)
 		);
 		File.WriteAllText(@"options.json", options.ToString());
 		using (StreamWriter file = File.CreateText(@"options.json"))

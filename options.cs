@@ -19,4 +19,16 @@ public class ConfigBody
         get { return crosshairvalue; }
         set { crosshairvalue = value; }
     }
+    private static float besttimevalue;
+    public float besttime
+    {
+        get { return besttimevalue; }
+        set { besttimevalue = value; }
+    }
+    private static int bestpointsvalue;
+    public int bestpoints
+    {
+        get { return bestpointsvalue; }
+        set { bestpointsvalue = value; }
+    }
 }
