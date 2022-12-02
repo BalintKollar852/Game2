@@ -42,6 +42,12 @@ public class Game : Node2D
     private int bestpoints;
     public override void _Ready()
     {
+
+        // Animáció amikor a zombie meghal
+        // Gomb designek lecserélése (menüben, beállításokba)
+        // Pathfinding
+        // Tilemap kiegészítése
+
         flashlight = GetNode("Character/KinematicBody2D/Light2D") as Light2D;
         daynight = GetNode("CanvasModulate/AnimationPlayer") as AnimationPlayer;
         daynight.Play("Day_Night_Cycle");
@@ -139,11 +145,11 @@ public class Game : Node2D
         }
         fps.Text = "FPS: " + Convert.ToString(Math.Round(1/delta));
         if(hp <= 0){
-            if(config.bestpoints <= gold){
+            if((gold / (timer.WaitTime - timer.TimeLeft)) > (config.bestpoints / config.besttime)){
                 besttime = timer.WaitTime - timer.TimeLeft;
                 bestpoints = gold;
                 SaveToFile();
-                bestpointsandtime.Text = "Best Points/Time: \n" + Convert.ToString(bestpoints) + " / " + Convert.ToString(TimeSpan.FromSeconds(Math.Round(besttime, 0)));
+                bestpointsandtime.Text = "Best Points/Time: \n " + Convert.ToString(bestpoints) + " / " + Convert.ToString(TimeSpan.FromSeconds(Math.Round(besttime, 0)));
             }
             else{
                 bestpointsandtime.Text = "Best Points/Time: \n" + Convert.ToString(config.bestpoints) + " / " + Convert.ToString(TimeSpan.FromSeconds(Math.Round(config.besttime, 0)));
