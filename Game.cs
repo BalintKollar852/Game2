@@ -42,11 +42,7 @@ public class Game : Node2D
     private int bestpoints;
     public override void _Ready()
     {
-
-        // Animáció amikor a zombie meghal
         // Gomb designek lecserélése (menüben, beállításokba)
-        // Pathfinding
-        // Tilemap kiegészítése
 
         flashlight = GetNode("Character/KinematicBody2D/Light2D") as Light2D;
         daynight = GetNode("CanvasModulate/AnimationPlayer") as AnimationPlayer;

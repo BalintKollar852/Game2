@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Zombie/skeleton-move_0.png" type="Texture" id=1]
 [ext_resource path="res://Enemy.cs" type="Script" id=2]
@@ -45,6 +45,7 @@
 [ext_resource path="res://Zombie/skeleton-move_11.png" type="Texture" id=43]
 [ext_resource path="res://Zombie/skeleton-move_15.png" type="Texture" id=44]
 [ext_resource path="res://Zombie/skeleton-move_12.png" type="Texture" id=45]
+[ext_resource path="res://Blood.tscn" type="PackedScene" id=46]
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 30.0
@@ -89,9 +90,11 @@ expand_margin_bottom = 1.0
 [node name="Enemy" type="Node2D"]
 script = ExtResource( 2 )
 psGold = ExtResource( 3 )
+psBlood = ExtResource( 46 )
 
 [node name="EnemyBody" type="KinematicBody2D" parent="."]
 scale = Vector2( 0.2, 0.2 )
+z_index = 1
 collision_layer = 3
 collision_mask = 3
 

@@ -169,13 +169,14 @@ script = ExtResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["character"]]
 scale = Vector2( 0.2, 0.2 )
+z_index = 1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
 position = Vector2( 5, 5 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 1 )
 animation = "knife_attack"
-frame = 11
+frame = 10
 speed_scale = 3.0
 playing = true
 

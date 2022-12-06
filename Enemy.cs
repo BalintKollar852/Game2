@@ -4,6 +4,7 @@ using System;
 public class Enemy : Node2D
 {
     [Export] public PackedScene psGold;
+    [Export] public PackedScene psBlood;
     [Signal] delegate void EnemyAttack();
     public float speed;
     public Vector2 irany;
@@ -125,13 +126,16 @@ public class Enemy : Node2D
     public void _on_AreaShape_area_entered(Area2D areashape){
         var areanodecucc = areashape.Owner as Node2D;
         if(areanodecucc.IsInGroup("bullet")){
+            bloodpudle();
             hp -= 50;
             areashape.Owner.QueueFree();
         }
         if(areashape.Name == "KnifeArea"){
+            bloodpudle();
             knifeattackarea = true;
         }
         if(areashape.IsInGroup("explosion")){
+            bloodpudle();
             hp -= 75;
         }
     }
@@ -144,6 +148,13 @@ public class Enemy : Node2D
         if(grenade.IsInGroup("grenade")){
             grenade.QueueFree();
         }
+    }
+    public void bloodpudle(){
+        var game = GetNode<Game>("/root/Game");
+        var EnemyBody = GetNode("EnemyBody") as KinematicBody2D;
+        Node2D blood = (Node2D)psBlood.Instance();
+        blood.Position = Position + EnemyBody.Position;
+        game.AddChild(blood);
     }
     
 }
